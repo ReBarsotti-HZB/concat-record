@@ -321,6 +321,7 @@ static long fetch_one_value (concatRecord *prec, const int j)
    } else {
       /* Fetch failed - no input.
        */
+      status = -1
       number_available = 0;
       action = prec->niem;
    }
@@ -349,7 +350,7 @@ static long fetch_one_value (concatRecord *prec, const int j)
              */
             {
                int i;
-               for (i = number_fetched; i < max_elements; i++) {
+               for (i = number_available; i < max_elements; i++) {
                   pad_input (prec, j, i);
                }
             }
